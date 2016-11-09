@@ -18,7 +18,7 @@
 		div.input{font-size:14px;border:1px solid #e0e0e0;display:inline-block;color:#333;height:26px;line-height:26px;padding:5px 10px;margin-top:10px;min-width:150px;position:relative;outline:none}
 		/*设置两个伪类对象的默认公共样式，让其中之一模拟placeholder但是默认隐藏，让另外一个作为可以浮上去的元素*/
 		div.input:before,div.input:after{position:absolute;left:7px;z-index:1;padding:0 3px;color:#bbb}
-		div.input:before{content:attr(placeholder);opacity:0;width:0}
+		div.input:before{content:attr(placeholder);opacity:0}
 		div.input:after{content:attr(title);background:#fff}
 		/*设置div没有任何内容（:empty）时伪类对象的默认样式，也就是初始样式*/
 		div.input:empty:before,div.input:empty:after{top:5px;height:26px;line-height:26px}
@@ -31,7 +31,7 @@
 		/*设置动画元素在div获取焦点和div有内容（:not(:empty)）时的样式*/
 		div.input:focus:after,div.input:not(:empty):after{height:12px;line-height:12px;font-size:12px;top:-6px}
 		/*设置获取焦点并且没有任何内容时的模拟placeholder的元素的样式（有内容时placeholder会隐藏）*/
-		div.input:focus:empty:before{opacity:1;width:100%;transition:all .3s ease-in-out}
+		div.input:focus:empty:before{opacity:1;transition:all .3s ease-in-out}
 		
 		/*使用div模拟小米表单效果*/
 	</style>
