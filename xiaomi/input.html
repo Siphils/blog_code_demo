@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小米input表单效果 input纯css模拟</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type="text/css">
+		body{margin:0;padding:0}
+		body>div{margin:50px}
+
+		/*使用input模拟小米表单效果*/
+		
+		/*设置容器的position属性让子元素可以针对其定位*/
+		label.input{position:relative;display:inline-block}
+		/*设置需要渐变动画的元素*/
+		.input input,.input input + span{transition:all .3s ease-in-out}
+		/*让input后面紧随的span元素默认状态模拟placeholder效果*/
+		.input input + span{position:absolute;top:15px;left:7px;font-size:14px;height:26px;line-height:26px;z-index:1;padding:0 3px;color:#bbb;background:#fff}
+		/*设置input的默认效果*/
+		.input input{font-size:14px;border:1px solid #e0e0e0;color:#333;height:26px;line-height:26px;padding:5px 10px;margin-top:10px;outline:none}
+		/*设置input的悬浮样式*/
+		.input input:hover{border-color:#bbb}
+		/*input获取焦点时的边框色*/
+		.input input:focus{border-color:#fc6721}
+		/*input获取焦点时紧随着的span的颜色*/
+		.input input:focus + span{color:#fc6721}
+		/*input获取焦点或者填写内容满足HTML5 required 验证（输入内容）后的紧随的span元素的位置*/
+		.input input:focus + span,.input input:valid + span{height:12px;line-height:12px;font-size:12px;top:4px}
+		/*隐藏input默认状态下的placeholder*/
+		.input input::-webkit-input-placeholder{opacity:0;color:#bbb}
+		/*显示input获取焦点状态下的placeholder*/
+		.input input:focus::-webkit-input-placeholder{opacity:1}
+		
+		/*使用input模拟小米表单效果*/
+	</style>
+</head>
+<body>
+	<div>
+		<p>请使用Chrome浏览器查看本页面</p>
+		<label class="input">
+			<input type="text" placeholder="收货人姓名" required/>
+			<span>姓名</span>
+		</label>
+		<label class="input">
+			<input type="text" placeholder="11位手机号" required/>
+			<span>手机号</span>
+		</label>
+		<p>小米原版效果：</p>
+		<img src="xiaomi.gif">
+	</div>
+</body>
+</html>

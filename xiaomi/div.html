@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小米input表单效果 div纯css模拟</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type="text/css">
+		body{margin:0;padding:0}
+		body>div{margin:50px}
+		
+		/*使用div模拟小米表单效果*/
+		
+		/*设置需要渐变动画的元素*/
+		div.input,div.input:after{transition:all .3s ease-in-out}
+		/*设置div的position属性让伪类对象可以针对其定位，以及模拟input的基本样式*/
+		div.input{font-size:14px;border:1px solid #e0e0e0;display:inline-block;color:#333;height:26px;line-height:26px;padding:5px 10px;margin-top:10px;min-width:150px;position:relative;outline:none}
+		/*设置两个伪类对象的默认公共样式，让其中之一模拟placeholder但是默认隐藏，让另外一个作为可以浮上去的元素*/
+		div.input:before,div.input:after{position:absolute;left:7px;z-index:1;padding:0 3px;color:#bbb}
+		div.input:before{content:attr(placeholder);opacity:0;width:0}
+		div.input:after{content:attr(title);background:#fff}
+		/*设置div没有任何内容（:empty）时伪类对象的默认样式，也就是初始样式*/
+		div.input:empty:before,div.input:empty:after{top:5px;height:26px;line-height:26px}
+		/*设置div鼠标悬浮的边框样式*/
+		div.input:hover{border-color:#bbb}
+		/*设置div获取焦点后边框样式*/
+		div.input:focus{border-color:#fc6721}
+		/*设置动画元素在div获得焦点后的颜色*/
+		div.input:focus:after{color:#fc6721}
+		/*设置动画元素在div获取焦点和div有内容（:not(:empty)）时的样式*/
+		div.input:focus:after,div.input:not(:empty):after{height:12px;line-height:12px;font-size:12px;top:-6px}
+		/*设置获取焦点并且没有任何内容时的模拟placeholder的元素的样式（有内容时placeholder会隐藏）*/
+		div.input:focus:empty:before{opacity:1;width:100%;transition:all .3s ease-in-out}
+		
+		/*使用div模拟小米表单效果*/
+	</style>
+</head>
+<body>
+	<div>
+		<p>请使用Chrome浏览器查看本页面</p>
+		<div class="input" placeholder="收货人姓名" title="姓名" contenteditable="true"></div>
+		<div class="input" placeholder="11位手机号" title="手机号" contenteditable="true"></div>
+		<p>小米原版效果：</p>
+		<img src="xiaomi.gif">
+	</div>
+</body>
+</html>
