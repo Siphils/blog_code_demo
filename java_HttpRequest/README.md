@@ -1,4 +1,4 @@
-## [HttpRequest java网络请求工具](https://github.com/ydq/blog_code_demo/blob/master/java_HttpRequest/HttpRequest.java)
+## [HttpRequest java网络请求工具](http://code.darren.work/java_HttpRequest/)
 
 一个超简单的java网络请求工具，主要应对于和类似于微信等接口通信请求、第三方Http接口请求等操作
 
