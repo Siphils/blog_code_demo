@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript实现Table导出Excel支持中文</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script type="text/javascript" src="excel.min.js"></script>
+		<style>table{border-collapse:collapse;}th,td{padding:10px}</style>
+	</head>
+	<body>
+		<h3>支持中文的纯JS将Table导出为Excel文件下载（非csv）</h3>
+		<table id="data" border="1">
+			<tr><th colspan="5">联系人信息表</th></tr>
+			<tr><th>#</th><th>姓名</th><th>性别</th><th>年龄</th><th>邮箱</th></tr>
+			<tr><td>1</td><td>张三</td><td>男</td><td>22</td><td>123456789@qq.com</td></tr>
+			<tr><td>1</td><td>李四</td><td>男</td><td>22</td><td>lisi008@sohu.com</td></tr>
+			<tr><td>1</td><td>王五</td><td>男</td><td>22</td><td>wangwu@sina.com</td></tr>
+			<tr><td>1</td><td>赵六</td><td>女</td><td>18</td><td>zhaoliu@163.com</td></tr>
+			<tr><td>1</td><td>darren</td><td>男</td><td>22</td><td>i@darren.work</td></tr>
+		</table>
+		<button onclick="tableToExcel('data','联系人数据','联系人Excel')">点此将上述表格导出Excel</button>
+		<p>请使用现代浏览器进行演示，<a href="https://github.com/ydq/blog_code_demo/table2Excel">文件下载</a></p>
+	</body>
+</html>

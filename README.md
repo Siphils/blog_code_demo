@@ -14,6 +14,10 @@
 
     >   小米输入框特效的纯CSS模拟实现
 
--   dplay
+-   [dplay](http://code.darren.work/dplay/)
 
     >   博客原创的音乐播放器，配合pjax效果最佳，当然不支持pjax也做了一点兼容（会有短暂的中断）
+    
+-   [table2Excel](http://code.darren.work/table2Excel/)
+
+    >   使用纯Js将HTML Table转为excel并下载（非csv），非原创，只是自己修改优化，支持中文
