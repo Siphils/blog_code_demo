@@ -214,7 +214,7 @@ public final class HttpRequest implements AutoCloseable{
 	public String send() {
 		if (protocol!=null) {
 			boolean hasMap = !params.keySet().isEmpty();
-			//如果是Get方式 或 Post方式但是有需要直接Post输出的参数 则将Map参数设置在字符串上
+			//如果是Get方式 或 Post方式但是有需要直接Post输出的参数 则将Map参数设置在URL字符串上
 			if (this.method == Method.GET||this.postData!=null)
 				url =  hasMap? (url + (url.indexOf("?") >= 0 ? "&" : "?") + mapToParamStr(this.params)):url;
 			//如果是Post方式 并且没有设置需要直接Post输出的参数（非键值对）则将Map参数转化为Post参数
@@ -315,10 +315,16 @@ public final class HttpRequest implements AutoCloseable{
 		conn.setRequestProperty("Accept-Charset", reqCharset.name());
 		conn.setUseCaches(false);
 		if (Method.POST == method) {
+			//默认认为是表单提交
 			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + reqCharset.name());
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
-			if (postData!=null) {
+			if (postData!=null&&postData.length()>0) {
+				postData = postData.trim();
+				if(postData.indexOf("{")==0)//当以"{"开头的post数据要提交则认为是提交json数据
+					conn.setRequestProperty("Content-Type", "application/json;charset=" + reqCharset.name());
+				else if(postData.indexOf("<")==0)//当以"<"开头的post数据要提交则认为是提交xml数据
+					conn.setRequestProperty("Content-Type", "application/xml;charset=" + reqCharset.name());
 				try(OutputStream outputStream = conn.getOutputStream()){
 					outputStream.write(postData.getBytes(reqCharset));
 				}catch(IOException e){
