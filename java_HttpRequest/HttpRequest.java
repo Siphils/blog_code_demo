@@ -312,6 +312,7 @@ public final class HttpRequest implements AutoCloseable{
 		conn.setConnectTimeout(5000);
 		conn.setRequestProperty("User-Agent", userAgent);
 		conn.setRequestProperty("Referer", referer);
+		conn.setRequestProperty("Accept","text/html,application/xhtml+xml,application/xml,application/json;q=0.9,image/webp,*/*;q=0.8");
 		conn.setRequestProperty("Accept-Charset", reqCharset.name());
 		conn.setUseCaches(false);
 		if (Method.POST == method) {
