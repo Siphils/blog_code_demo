@@ -92,6 +92,10 @@ public final class HttpRequest implements AutoCloseable{
 	
 	private String savePath;//文件下载保存路径
 	
+	
+	private Integer reqTimeout=5000;//请求超时时间设置
+	private Integer readTimeout;//读取超时时间设置
+	
 	//私有的构造方法
 	private HttpRequest(String url, Method method) {
 		super();
@@ -193,6 +197,28 @@ public final class HttpRequest implements AutoCloseable{
 	public HttpRequest sslConfig(String sslKey,String certPath){
 		this.sslKey = sslKey;
 		this.certPath = certPath;
+		return this;
+	}
+	
+	
+	
+	/**
+	 * 设置读取超时
+	 * @param readTimeout
+	 * @return
+	 */
+	public HttpRequest reqTimeout(Integer reqTimeout){
+		this.reqTimeout = reqTimeout;
+		return this;
+	}
+	
+	/**
+	 * 设置读取超时
+	 * @param readTimeout
+	 * @return
+	 */
+	public HttpRequest readTimeout(Integer readTimeout){
+		this.readTimeout = readTimeout;
 		return this;
 	}
 	
@@ -309,12 +335,13 @@ public final class HttpRequest implements AutoCloseable{
 	 * @return
 	 */
 	private String URLConnectionRequest(final URLConnection conn) {
-		conn.setConnectTimeout(5000);
+		conn.setConnectTimeout(reqTimeout);
 		conn.setRequestProperty("User-Agent", userAgent);
 		conn.setRequestProperty("Referer", referer);
 		conn.setRequestProperty("Accept","text/html,application/xhtml+xml,application/xml,application/json;q=0.9,image/webp,*/*;q=0.8");
 		conn.setRequestProperty("Accept-Charset", reqCharset.name());
 		conn.setUseCaches(false);
+		if(readTimeout!=null) conn.setReadTimeout(readTimeout);
 		if (Method.POST == method) {
 			//默认认为是表单提交
 			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + reqCharset.name());
