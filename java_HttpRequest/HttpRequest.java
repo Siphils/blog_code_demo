@@ -286,12 +286,13 @@ public final class HttpRequest implements AutoCloseable{
 	 * @throws CertificateException
 	 * @throws UnrecoverableKeyException
 	 */
+	@SuppressWarnings("static-access")
 	private String request() throws IOException, KeyManagementException,
 			NoSuchAlgorithmException, KeyStoreException, CertificateException, UnrecoverableKeyException {
 		CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
 		URL url = new URL(this.url);
 		URLConnection conn = url.openConnection();
-		String result = null;
+		String result = null,redirect=null;
 		if (Protocol.HTTPS == protocol) {
 			SSLContext sslContext = SSLContext.getInstance("TLSV1.2");
 			X509TrustManager[] tm = { new X509TrustManager() {
@@ -319,14 +320,16 @@ public final class HttpRequest implements AutoCloseable{
 			httpsConn.setSSLSocketFactory(ssf);
 			httpsConn.setRequestMethod(method.toString());
 			result = URLConnectionRequest(httpsConn);
+			redirect = httpsConn.getHeaderField("Location");
 			httpsConn.disconnect();
 		} else {
 			HttpURLConnection httpConn = (HttpURLConnection) conn;
 			httpConn.setRequestMethod(method.toString());
 			result = URLConnectionRequest(httpConn);
+			redirect = httpConn.getHeaderField("Location");
 			httpConn.disconnect();
 		}
-		return result;
+		return redirect==null?result:this.get(redirect).send();
 	}
 
 	/**
