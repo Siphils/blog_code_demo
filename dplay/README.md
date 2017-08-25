@@ -8,11 +8,11 @@
 
     [http://10176523.cn](http://10176523.cn)
 
-    http://code.darren.work/dplay/demo.html
+    [http://code.darren.work/dplay/demo.html](http://code.darren.work/dplay/demo.html)
 
 -   播放器文件下载：
 
-    [点此下载](https://github.com/ydq/blog_code_demo/releases/download/dplay/dplay.zip) 或者进入 [https://github.com/ydq/blog_code_demo/releases](https://github.com/ydq/blog_code_demo/releases) 查找dplay.zip下载
+    [点此下载](https://github.com/ydq/blog_code_demo/releases/download/dplay3/dplay.zip) 或者进入 [https://github.com/ydq/blog_code_demo/releases](https://github.com/ydq/blog_code_demo/releases) 查找dplay.zip下载
 
 -   播放器文件说明：
 
