@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<meta charset="utf-8">
+	<style type="text/css">#lrc{position:fixed;top:40px;left:0;width:100%;font-size:30px;}</style>
+</head>
+<body>
+	<div id="lrc"></div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+	<script src="dplay3.js"></script>
+	<script type="text/javascript">
+		
+	//参数1：歌词容器选择器
+	//参数2：网易云引用歌单id，可以自己创建一个歌单，然后不停的往歌单增加歌曲即可自动更新列表
+	//参数3[可选]：歌曲重定向地址，用于欺骗Chrome、Safari等浏览器音频跨域显示频谱，不设置不显示频谱
+	playmusic('#lrc','867504997');
+	//playmusic('#lrc','869603409','dplay3.php?url=');//需要将php文件放入同一个域名下面
+	</script>
+</body>
+</html>
