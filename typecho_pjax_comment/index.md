@@ -2,7 +2,7 @@
 
 ---
 
--   替换`var/Widget/Archive.php`文件为当前仓库中的`Archive.php`文件
+-   替换`var/Widget/Archive.php`文件为当前仓库中的`Archive.php`文件 [点此进入下载页面](https://github.com/ydq/blog_code_demo/tree/master/typecho_pjax_comment)
 
 -   修改`usr/themes/default/comments.php`文件，在最底部else上面添加`<?php $this->commentjs();?>`
 
