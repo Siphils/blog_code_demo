@@ -2,15 +2,15 @@
 
 ---
 
--   [java_HttpRequest](http://10176523.cn/archives/91)
+-   [java_HttpRequest](http://darren.ink/archives/91)
 
     >   自己封装的一个简单的Java的HTTPRequest网络请求的类，链式调用的简单友好Api。
 
--   [typecho_pjax_comment](http://10176523.cn/archives/47)
+-   [typecho_pjax_comment](http://darren.ink/archives/47)
 
     >   php博客Typecho启用ajax/pjax主题导致评论失效的解决方案
 
--   [xiaomi](http://10176523.cn/archives/120)
+-   [xiaomi](http://darren.ink/archives/120)
 
     >   小米输入框特效的纯CSS模拟实现
 

@@ -4,7 +4,7 @@
 
 - 播放器演示：
 
-  [http://10176523.cn](http://10176523.cn)
+  [http://darren.ink](http://darren.ink)
 
   [http://code.darren.work/dplay/demo.html](http://code.darren.work/dplay/demo.html)
 
